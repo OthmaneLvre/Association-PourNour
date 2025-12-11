@@ -1,0 +1,1338 @@
+/* ========================= */
+/* VARIABLES GLOBALES */
+/* ========================= */
+
+:root {
+    /* Couleurs */
+    --section: #F5EFE6;
+    --background: #E8D5CC;
+    --title: #6c5f57;
+    --buttons: #BDA18A;
+    --secondary-buttons: #D5CABC;
+    --text: #000000;
+    --color-card: #FDF9F4;
+    --white: #FFFFFF;
+
+
+    /* Typographies */
+    --font-primary: 'Great Vibes', cursive;
+    --font-secondary: 'Garamond', serif;
+
+    /* Ombrages */
+    --shadow-soft: 8px 24px 4px rgba(0,0,0,0.12);
+    --shadow-card: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-btn: 0 4px 4px rgba(0,0,0,0.25);
+}
+
+/* STYLES GENERALE */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-secondary);
+    background: var(--background);
+}
+
+
+h1, h2, h3, h4 {
+    font-family: var(--font-primary);
+    color: var(--title);
+}
+
+/*********************************/
+/* GLOBAL BUTTON SYSTEM */
+/*********************************/
+
+.btn {
+    display: inline-block;
+    padding: 10px 28px;
+    border-radius: 30px; /* pill button */
+    font-family: var(--font-secondary);
+    font-size: 22px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+    text-align: center;
+    white-space: nowrap;
+    box-shadow: var(--shadow-btn)
+}
+
+/* Bouton primaire — brun (Faire un don) */
+.btn-primary {
+    background: var(--buttons);
+    color: var(--white) !important;
+}
+
+/* Bouton secondaire — beige (Adhérer) */
+.btn-secondary {
+    background: var(--secondary-buttons);
+    color: var(--title);
+}
+
+/* Hover statuts */
+.btn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+
+/*********************************/
+/* NAVBAR */
+/*********************************/
+
+.site-header {
+    background: var(--section);
+    border-bottom: 1px solid #D5CABC;
+    padding: 18px 0;
+    position: relative;
+    z-index: 10;
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    height: 60px;
+}
+
+/* NAV DESKTOP */
+.nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Espacement identique Figma */
+}
+
+.nav-desktop ul {
+    display: flex;
+    gap: 45px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-desktop a {
+   font-family: var(--font-title);
+    font-size: 18px;
+    color: var(--title);
+    text-decoration: none;
+}
+
+.nav-desktop a:hover {
+    opacity: 0.7;
+}
+
+
+/*************** BURGER (mobile) ***************/
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.burger span {
+    width: 28px;
+    height: 3px;
+    background: #6F4F3F;
+    border-radius: 2px;
+}
+
+/*************** NAV MOBILE ***************/
+.nav-mobile {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #F5EFE6;
+    padding: 20px 0;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+}
+
+.nav-mobile ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-mobile a {
+    display: block;
+    padding: 12px 0;
+    font-size: 20px;
+    font-family: "Garamond", serif;
+    color: #6F4F3F;
+}
+
+.nav-mobile .don-btn-mobile {
+    background: #C49D83;
+    padding: 12px 20px;
+    color: white;
+    border-radius: 20px;
+    width: fit-content;
+    margin: 15px auto 0;
+}
+
+/*********************************/
+/* FOOTER */
+/*********************************/
+
+.footer {
+    background: var(--section);
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* 3 COLONNES EN HAUT */
+.footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px 80px;
+    align-items: center;
+}
+
+/* ========== COLONNE GAUCHE ========== */
+
+.footer-left {
+    display: grid;
+    grid-template-columns: auto auto; /* menu à gauche, icônes à droite */
+    column-gap: 100px;
+    align-items: start;
+    width: fit-content;
+    align-items: center;
+}
+
+/* Menu */
+.footer-menu a {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--title);
+    font-size: 18px;
+    text-decoration: none;
+}
+
+/* Icônes en colonne (comme ta maquette) */
+.footer-socials-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 0; /* Important */
+    padding-top: 2px; /* Ajustement fin esthétique */
+    justify-content: center;
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+/* ========== COLONNE CENTRE ========== */
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-logo {
+    width: 65px;
+    margin-bottom: 10px;
+}
+
+.footer-quote {
+    font-family: var(--font-primary);
+    font-size: 32px;
+    font-size: 400;
+    font-style: italic;
+    color: var(--title);
+    margin-top: 5px;
+}
+
+/* ========== COLONNE DROITE ========== */
+
+.footer-right {
+    text-align: right;
+}
+
+.footer-right p {
+    color: var(--title);
+}
+
+.footer-contact {
+    color: var(--title);
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.footer-address {
+    color: var(--title);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* ========== BAS DU FOOTER ========== */
+
+.footer-bottom {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 15px;
+    border-top: 1px solid #E5D0C7;
+    padding-top: 15px;
+}
+
+.footer-bottom a {
+    text-decoration: none;
+    color: var(--title);
+}
+
+.brand {
+    color: var(--title);
+    text-decoration: none;
+}
+
+
+.legal {
+    color: var(--dark);
+}
+
+
+/*********************************/
+/* HERO */
+/*********************************/
+
+.hero {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    padding: 60px 40px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+/* TITRE */
+.hero-title {
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--title);
+    margin-bottom: 25px;
+}
+
+/* LOGO "Pour Nour" */
+.hero-logo {
+    width: 160px;
+    margin-bottom: 25px;
+}
+
+/* TEXTE */
+.hero-subtext {
+    font-size: 22px;
+    color: var(--text);
+    max-width: 600px;
+    margin: 0 auto 35px auto;
+    line-height: 1.5;
+}
+
+/* BOUTONS */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+/*********************************/
+/* QUI SOMMES-NOUS */
+/*********************************/
+
+.about-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.about-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    padding: 60px 50px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* TEXTE */
+
+.about-title {
+    font-family: var(--font-primary);
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--title);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.about-text p {
+    color: var(--text);
+    font-size: 22px;
+    line-height: 150%;
+    margin-bottom: 30px;
+    max-width: 520px;
+    text-align: center;
+}
+
+.about-text a {
+    display: flex;
+    justify-content: center;
+}
+
+/* ILLUSTRATION */
+.about-image img {
+    width: 260px;
+    height: auto;
+}
+
+/*********************************/
+/* NOTRE HISTOIRE */
+/*********************************/
+
+.history-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.history-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    padding: 60px 50px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* TITRE AVEC ICÔNE */
+.history-title-box {
+    text-align: center;
+}
+
+.history-icon {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.history-title {
+    font-family: var(--font-primary);
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--title);
+}
+
+/* BLOC TEXTE */
+.history-text-box {
+    padding: 30px;
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 22px;
+    line-height: 150%;
+}
+
+.history-text-box p {
+    margin-bottom: 25px;
+}
+
+/* CITADELLE FINALE */
+.history-quote {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 22px;
+    color: var(--text);
+    line-height: 150ù;
+}
+
+/*********************************/
+/* NOS VALEURS */
+/*********************************/
+
+.values-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.values-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    padding: 60px 50px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+/* TITRE */
+.values-title {
+    font-family: var(--font-primary);
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--title);
+    margin-bottom: 50px;
+}
+
+/* CARTES EN LIGNE */
+.values-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* CARTE */
+.value-card {
+    background: var(--color-card);
+    flex: 1;
+    padding: 40px 25px;
+    border-radius: 22px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+
+    /* IMPORTANT pour maîtriser les hauteurs internes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Zone icône + titre, même hauteur pour les 3 */
+.value-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 140px; 
+}
+
+/* ICÔNE */
+.value-icon {
+    width: 55px;
+    margin-bottom: 18px;
+}
+
+/* TITRE CARTE */
+.value-heading {
+    font-family: var(--font-primary);
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--title);
+    margin: 0; /* pas de marge parasite */
+}
+
+/* TEXTE */
+.value-card p {
+    color: var(--text);
+    font-size: 22px;
+    line-height: 1.6;
+    margin-top: 24px;
+}
+
+
+/*********************************/
+/* SOUTENIR L'ASSOCIATION */
+/*********************************/
+
+.support-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.support-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    padding: 0px 60px 30px 60px;
+    border-radius: 25px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* Titre */
+.support-title {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    color: var(--title);
+    font-size: 60px;
+    margin-bottom: 30px;
+}
+
+.support-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* =============================
+   PAGE L’ASSOCIATION
+============================= */
+
+/* SECTION HERO */
+
+.asso-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.asso-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    padding: 20px 50px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* TEXTE */
+
+.asso-title {
+    font-family: var(--font-primary);
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--title);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.asso-text p {
+    color: var(--text);
+    font-size: 22px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 520px;
+    text-align: center;
+}
+
+/* ILLUSTRATION */
+.asso-image img {
+    width: 400px;
+    height: auto;
+}
+
+/* SECTION WHY ? */
+.why-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.why-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    padding: 30px 50px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* TEXTE */ 
+.why-title {
+    font-family: var(--font-primary);
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--title);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.why-text p {
+    color: var(--text);
+    font-family: var(--font-secondary);
+    font-size: 22px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 1080px;
+    text-align: center;
+}
+
+/*  BOUTON */
+.why-text a {
+    display: flex;
+    justify-content: center;
+}
+
+/* NOS MISSIONS */
+
+
+.mission-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.mission-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    padding: 60px 50px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+/* TITRE */
+.mission-title {
+    font-family: var(--font-primary);
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--title);
+    margin-bottom: 50px;
+}
+
+/* CARTES EN LIGNE */
+.mission-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* CARTE */
+.mission-card {
+    background: var(--color-card);
+    flex: 1;
+    padding: 40px 25px;
+    border-radius: 22px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+
+    /* IMPORTANT pour maîtriser les hauteurs internes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Zone icône + titre, même hauteur pour les 3 */
+.mission-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 140px; 
+}
+
+/* ICÔNE */
+.mission-icon {
+    width: 55px;
+    margin-bottom: 18px;
+}
+
+/* TITRE CARTE */
+.mission-heading {
+    font-family: var(--font-primary);
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--title);
+    margin: 0; /* pas de marge parasite */
+}
+
+/* TEXTE */
+.mission-card p {
+    color: var(--text);
+    font-size: 22px;
+    line-height: 1.6;
+    margin-top: 24px;
+}
+
+
+/* SOUTENIR ASSOCIATION */
+
+.support-text p {
+    font-family: var(--font-secondary);
+    color: var(--text);
+    font-size: 22px;
+    padding-bottom: 30px;
+    line-height: 150%;
+}
+
+/* =============================
+   PAGE ADHESION
+============================= */
+
+.join-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.join-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    padding: 60px 50px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+.join-title {
+    font-family: var(--font-primary);
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--title);
+}
+
+.join-text {
+    font-family: var(--font-secondary);
+    font-size: 22px;
+    color: var(--text);
+    line-height: 150%;
+    max-width: 1080px;
+}
+
+/*  BOUTON */
+.join-text a {
+    display: flex;
+    justify-content: center;
+}
+
+/* POURQUOI ADHERER ? */ 
+
+.whyjoin-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.whyjoin-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    padding: 60px 50px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    gap: 40px;
+}
+
+.whyjoin-title {
+    font-family: var(--font-primary);
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--title);
+}
+
+.whyjoin-text {
+    font-family: var(--font-secondary);
+    font-size: 22px;
+    color: var(--text);
+    line-height: 150%;
+    max-width: 1080px;
+}
+
+.list {
+    text-align: left;
+    padding-left: 300px;
+}
+
+.adhesion-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* CARTE */
+.adhesion-card {
+    background: var(--color-card);
+    flex: 1;
+    padding: 40px 25px;
+    border-radius: 22px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+
+    /* IMPORTANT pour maîtriser les hauteurs internes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Zone icône + titre, même hauteur pour les 3 */
+.adhesion-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 140px; 
+}
+
+/* ICÔNE */
+.adhesion-icon {
+    width: 55px;
+    margin-bottom: 18px;
+}
+
+/* TITRE CARTE */
+.adhesion-heading {
+    font-family: var(--font-primary);
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--title);
+    margin: 0; /* pas de marge parasite */
+}
+
+/* TEXTE */
+.adhesion-card p {
+    color: var(--text);
+    font-size: 22px;
+    line-height: 1.6;
+    margin-top: 24px;
+}
+
+/* FORMULAIRE ADHESION */
+
+.form-adhesion-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.form-adhesion-wrapper {
+    background: var(--section);
+    width: 100%;
+    max-width: 1050px;
+    padding: 60px 50px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+.form-adhesion-title {
+    font-family: var(--font-primary);
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--title);
+}
+
+.form-adhesion-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.form-adhesion-title p {
+    font-family: var(--font-secondary);
+    color: var(--text);
+    font-size: 15px;
+}
+
+.card-form {
+    background: var(--color-card);
+    flex: 1;
+    padding: 40px 25px;
+    width: 100%;
+    max-width: 900px; /* largeur Figma */
+    border-radius: 22px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    text-align: left; /* IMPORTANT */
+}
+
+.card-form form {
+    width: 100%;
+    max-width: 100%; /* le formulaire occupe la carte entière */
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: stretch; /* IMPORTANT !!! */
+}
+
+.card-form label {
+    font-family: var(--font-secondary);
+    color: var(--text);
+    font-size: 22px;
+    text-align: left;
+}
+
+.card-form input,
+.card-form select,
+.card-form textarea {
+    padding: 10px 14px;
+    font-size: 15px;
+    border: 1px solid var(--buttons);
+    border-radius: 10px;
+    font-family: var(--font-secondary);
+    outline: none;
+    background: var(--white);
+}
+
+.card-form .btn {
+    align-self: center;
+    border: none;
+}
+
+.card-form textarea {
+    height: 140px;
+    resize: none;
+}
+
+/* CTA ADHESION */
+
+.support-adhesion-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.support-adhesion-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    padding: 0px 60px 30px 60px;
+    border-radius: 25px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* Titre */
+.support-adhesion-title {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    color: var(--title);
+    font-size: 60px;
+    margin-bottom: 30px;
+}
+
+.support-adhesion-text p {
+    font-family: var(--font-secondary);
+    font-size: 22px;
+    color: var(--text);
+    padding-bottom: 30px;
+}
+
+.support-adhesion-button {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* =============================
+   PAGE CONTACT
+============================= */
+
+.contact-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    padding: 60px 50px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+.contact-title {
+    font-family: var(--font-primary);
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--title);
+    padding-bottom: 30px;
+}
+
+.contact-text {
+    font-family: var(--font-secondary);
+    font-size: 22px;
+    color: var(--text);
+    line-height: 150%;
+    max-width: 1080px;
+}
+
+.contact-text p {
+    padding-bottom: 30px;
+}
+
+/*  BOUTON */
+.contact-text a {
+    display: flex;
+    justify-content: center;
+}
+
+/*  DETAILS CONTACT */ 
+.details-contact {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.details-contact-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 60px;
+    gap: 30px;
+}
+
+.contact-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-icon {
+    width: 55px;
+    margin-bottom: 10px;
+}
+
+.contact-col h2 {
+    font-family: var(--font-primary);
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--title);
+    margin: 0;
+}
+
+.contact-col p {
+    font-family: var(--font-secondary);
+    color: var(--text);
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* FORMULAIRE contact */
+
+.form-contact-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.form-contact-wrapper {
+    background: var(--section);
+    width: 100%;
+    max-width: 1050px;
+    padding: 60px 50px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+.form-contact-title {
+    font-family: var(--font-primary);
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--title);
+}
+
+.form-contact-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.form-contact-title p {
+    font-family: var(--font-secondary);
+    color: var(--text);
+    font-size: 15px;
+}
+
+.card-form {
+    background: var(--color-card);
+    flex: 1;
+    padding: 40px 25px;
+    width: 100%;
+    max-width: 900px; /* largeur Figma */
+    border-radius: 22px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    text-align: left; /* IMPORTANT */
+}
+
+.card-form form {
+    width: 100%;
+    max-width: 100%; /* le formulaire occupe la carte entière */
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: stretch; /* IMPORTANT !!! */
+}
+
+.card-form label {
+    font-family: var(--font-secondary);
+    color: var(--text);
+    font-size: 22px;
+    text-align: left;
+}
+
+.card-form input,
+.card-form select,
+.card-form textarea {
+    padding: 10px 14px;
+    font-size: 15px;
+    border: 1px solid var(--buttons);
+    border-radius: 10px;
+    font-family: var(--font-secondary);
+    outline: none;
+    background: var(--white);
+}
+
+.card-form .btn {
+    align-self: center;
+    border: none;
+}
+
+.card-form textarea {
+    height: 140px;
+    resize: none;
+}
+
+
+/*********************************/
+        /* RESPONSIVe */
+/*********************************/
+@media (max-width: 900px) {
+
+    /* NAVBAR */ 
+    .nav-desktop {
+        display: none;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .nav-mobile {
+        display: none; /* contrôlé en JS */
+    }
+
+    .nav-mobile.open {
+        display: flex;
+    }
+
+    /* PAGE ACCUEIL - HERO */
+
+    .hero-wrapper {
+        padding: 45px 20px;
+    }
+
+    .hero-title {
+        font-size: 30px;
+    }
+
+    .hero-logo {
+        width: 130px;
+    }
+
+    .hero-subtext {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    /* PAGE ACCUEIL - Qui sommes nous ? */
+
+    .about-wrapper {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .about-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about-image img {
+        width: 200px;
+        margin-top: 20px;
+    }
+
+    /* PAGE ACCUEIL - Notre histoire */
+
+    .history-wrapper {
+        padding: 40px 20px;
+    }
+
+    .history-title-box {
+        padding: 18px 0;
+    }
+
+    .history-icon {
+        width: 48px;
+    }
+
+    .history-title {
+        font-size: 28px;
+    }
+
+    .history-text-box {
+        padding: 20px;
+    }
+
+    .history-quote {
+        font-size: 16px;
+    }
+
+    /* PAGE ACCUEIL - NOS VALEURS */ 
+
+    .values-cards {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .value-card {
+        padding: 30px 20px;
+    }
+
+    .value-heading {
+        font-size: 26px;
+    }
+
+    /* FOOTER */ 
+
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-contact {
+        text-align: center;
+    }
+}
+
+
