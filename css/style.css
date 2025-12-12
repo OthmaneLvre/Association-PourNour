@@ -25,14 +25,23 @@
 }
 
 /* STYLES GENERALE */
+html, body {
+    height: 100%;
+}
 
 body {
     margin: 0;
     padding: 0;
     font-family: var(--font-secondary);
     background: var(--background);
+    display: flex;
+    flex-direction: column;
 }
 
+/* Le contenu principal pousse le footer vers le bas */
+main {
+    flex: 1;
+}
 
 h1, h2, h3, h4 {
     font-family: var(--font-primary);
@@ -1217,6 +1226,246 @@ h1, h2, h3, h4 {
     resize: none;
 }
 
+/*********************************/
+/* PAGE FAIRE UN DON  */
+/*********************************/
+
+/* HERO DON */
+.don-hero {
+    text-align: center;
+    padding: 50px 0 20px;
+}
+
+.don-hero h1 {
+    font-family: var(--font-primary);
+    font-size: 60px;
+    color: var(--title);
+}
+
+.don-hero p {
+    font-family: var(--font-secondary);
+    color: var(--text);
+    font-size: 22px;
+}
+
+/* SECTION DON */
+.don-section {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+    margin-top: 50px;
+}
+
+.don-wrapper {
+    
+    background: var(--section);
+    width: 90%;
+    max-width: 900px;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+}
+
+.don-title {
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 40px;
+    margin-bottom: 25px;
+    color: var(--title);
+}
+
+.don-text {
+    text-align: center;
+    font-family: var(--font-secondary);
+    font-size: 22px;
+    color: var(--text);
+}
+
+/* FORMULAIRE */
+.don-form,
+#payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.don-form label,
+#payment-form label {
+    font-family: var(--font-secondary);
+    font-size: 22px;
+    color: var(--text);
+}
+
+.don-form input,
+.don-form select,
+.don-form textarea,
+#payment-form input {
+    padding: 12px 14px;
+    border: 1px solid var(--buttons);
+    border-radius: 12px;
+    background: var(--white);
+    font-size: 16px;
+    font-family: var(--font-secondary);
+}
+
+.don-form textarea {
+    height: 130px;
+    resize: none;
+}
+
+.don-form .btn {
+    margin-top: 10px;
+    align-self: center;
+    border: none;
+}
+
+/* ZONE STRIPE */
+#card-element {
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid var(--buttons);
+    background: white;
+}
+
+#card-errors {
+    color: #d9534f;
+    font-size: 15px;
+    margin-top: -8px;
+    text-align: center;
+}
+
+/* PAGE CHOIX DE PAIEMENT */
+
+.page-choix-paiement {
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.choix-paiement-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.choix-wrapper {
+    background: var(--color-card);
+    padding: 50px 40px;
+    border-radius: 22px;
+    box-shadow: var(--shadow-soft);
+    max-width: 650px;
+    text-align: center;
+}
+
+.choix-title {
+    font-family: var(--font-primary);
+    font-size: 34px;
+    color: var(--title);
+    margin-bottom: 10px;
+}
+
+.choix-montant {
+    font-family: var(--font-secondary);
+    color: var(--text);
+    margin-bottom: 30px;
+}
+
+.choix-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.choix-buttons .btn {
+    width: 100%;
+    max-width: 280px;
+}
+
+
+/* VIREMENT */
+.virement .rib-box {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 20px;
+    border: 1px solid var(--buttons);
+    margin: 25px auto;
+    width: 90%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.virement .rib-box p {
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    margin: 6px 0;
+}
+
+/* SUCCESS / CANCEL */
+.success-box,
+.cancel-box {
+    background: var(--section);
+    width: 85%;
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 50px 40px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+}
+
+.success-box h2,
+.cancel-box h2 {
+    font-size: 48px;
+    color: var(--title);
+    font-family: var(--font-primary);
+    margin-bottom: 10px;
+}
+
+.success-box p,
+.cancel-box p {
+    font-family: var(--font-secondary);
+    font-size: 20px;
+    color: var(--text);
+}
+
+
+/* Conteneur du formulaire Stripe */
+.paiement-form {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Style du champ Stripe (invisible par défaut, mais on peut styler son conteneur) */
+.card-input {
+    background: var(--white);
+    border: 1px solid var(--buttons);
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Ajuste l’intérieur du champ Stripe */
+.StripeElement {
+    font-size: 18px;
+    font-family: var(--font-secondary);
+    color: var(--text);
+}
+
+.StripeElement--focus {
+    border-color: var(--buttons);
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* Quand il y a une erreur */
+.StripeElement--invalid {
+    border-color: var(--error);
+}
+
 
 /*********************************/
         /* RESPONSIVe */
@@ -1320,6 +1569,29 @@ h1, h2, h3, h4 {
 
     .value-heading {
         font-size: 26px;
+    }
+
+    /* PAGE DON - NOS VALEURS */ 
+
+     .don-hero h1 {
+        font-size: 42px;
+    }
+
+    .don-wrapper {
+        padding: 30px 20px;
+    }
+
+    .don-title {
+        font-size: 38px;
+    }
+
+    .don-form,
+    #payment-form {
+        width: 100%;
+    }
+
+    .don-choix-paiement .btn {
+        width: 100%;
     }
 
     /* FOOTER */ 

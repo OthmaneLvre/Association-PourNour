@@ -17,7 +17,7 @@
             </ul>
 
             <!-- Bouton Figma -->
-            <a href="/don.php" class="btn btn-primary">Faire un don</a>
+            <a href="/Association-PourNour/don.php" class="btn btn-primary">Faire un don</a>
         </nav>
 
         <!-- BURGER -->
