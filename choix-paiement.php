@@ -11,7 +11,6 @@ if (!isset($_POST["montant"])) {
 // Enregistrer les informations du don dans la session
 $_SESSION["don"] = [
     "montant" => $_POST["montant"],
-    "type_don" => $_POST["type_don"],
     "nom" => $_POST["nom"],
     "prenom" => $_POST["prenom"],
     "email" => $_POST["email"],

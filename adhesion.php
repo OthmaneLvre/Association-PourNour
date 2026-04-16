@@ -1,4 +1,4 @@
-<?php 
+<?php
 $pageTitle = "Adhérer | Pour Nour";
 include 'partials/head.php';
 include 'partials/header.php';
@@ -44,7 +44,7 @@ include 'partials/header.php';
                         <li>d’accompagner les familles</li> 
                         <li>de créer des ressources et des actions de sensibilisation</li>
                         <li>de rendre visibles les histoires de ces bébés trop tôt partis</li>
-                        <li>de maintenir une écoute bienveillante et accessible</li>                        
+                        <li>de maintenir une écoute bienveillante et accessible</li>
                     </ul>
                 </p>
 
