@@ -1466,6 +1466,134 @@ h1, h2, h3, h4 {
     border-color: var(--error);
 }
 
+/*********************************/
+/* PAGE BOUTIQUE */
+/*********************************/
+
+/* HERO BOUTIQUE */
+.boutique-hero-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.boutique-hero-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    padding: 60px 40px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+.boutique-hero-title {
+    font-family: var(--font-primary);
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--title);
+    margin-bottom: 25px;
+}
+
+.boutique-hero-text {
+    font-family: var(--font-secondary);
+    font-size: 22px;
+    color: var(--text);
+    line-height: 1.5;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* PRODUIT */
+.boutique-product-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.boutique-product-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    padding: 60px 50px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.boutique-product-image img {
+    width: 280px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: var(--shadow-card);
+    display: block;
+}
+
+.boutique-product-content {
+    flex: 1;
+    text-align: center;
+}
+
+.boutique-product-title {
+    font-family: var(--font-primary);
+    font-size: 56px;
+    font-weight: 400;
+    color: var(--title);
+    margin-bottom: 25px;
+}
+
+.boutique-product-description {
+    font-family: var(--font-secondary);
+    font-size: 22px;
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.boutique-product-price {
+    font-family: var(--font-secondary);
+    font-size: 24px;
+    color: var(--title);
+    margin-bottom: 30px;
+}
+
+/* PRODUITS À VENIR */
+.boutique-coming-section {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.boutique-coming-wrapper {
+    background: var(--section);
+    width: 85%;
+    max-width: 1050px;
+    padding: 60px 50px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+
+.boutique-coming-title {
+    font-family: var(--font-primary);
+    font-size: 60px;
+    font-weight: 400;
+    color: var(--title);
+    margin-bottom: 25px;
+}
+
+.boutique-coming-text {
+    font-family: var(--font-secondary);
+    font-size: 22px;
+    color: var(--text);
+    line-height: 1.6;
+    max-width: 760px;
+    margin: 0 auto;
+}
 
 /*********************************/
         /* RESPONSIVe */
@@ -1594,6 +1722,44 @@ h1, h2, h3, h4 {
         width: 100%;
     }
 
+    /* PAGE BOUTIQUE */
+    .boutique-hero-wrapper,
+    .boutique-product-wrapper,
+    .boutique-coming-wrapper {
+        width: 85%;
+        padding: 40px 20px;
+    }
+
+    .boutique-hero-title,
+    .boutique-coming-title {
+        font-size: 42px;
+    }
+
+    .boutique-hero-text,
+    .boutique-product-description,
+    .boutique-coming-text,
+    .boutique-product-price {
+        font-size: 18px;
+    }
+
+    .boutique-product-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .boutique-product-title {
+        font-size: 42px;
+    }
+
+    .boutique-product-image img {
+        width: 220px;
+    }
+
+    .boutique-product-content .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
     /* FOOTER */ 
 
     .footer-top {
@@ -1605,6 +1771,7 @@ h1, h2, h3, h4 {
     .footer-contact {
         text-align: center;
     }
+
 }
 
 

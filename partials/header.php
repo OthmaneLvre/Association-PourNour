@@ -13,6 +13,7 @@
                 <li><a href="/Association-PourNour/index.php">Accueil</a></li>
                 <li><a href="/Association-PourNour/association.php">L’association</a></li>
                 <li><a href="/Association-PourNour/adhesion.php">Adhérer</a></li>
+                <li><a href="/Association-PourNour/boutique.php">Boutique</a></li>
                 <li><a href="/Association-PourNour/contact.php">Contact</a></li>
             </ul>
 
