@@ -2,3 +2,11 @@
 /node_modules
 /vendor
 .env
+/paiement-cancel.php
+/paiement-choix-paiement.php
+/paypal-process.php
+/stripe-charge.php
+/paiement-virement.php
+/paiement-success.php
+/paiement-stripe.php
+/paiement-paypal.php
