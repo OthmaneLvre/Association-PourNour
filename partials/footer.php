@@ -54,3 +54,4 @@
 </div>
 
 </footer>
+<script src="/Association-PourNour/js/main.js"></script>

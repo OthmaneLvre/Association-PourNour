@@ -3,7 +3,7 @@
     <div class="container header-container">
 
         <!-- Logo -->
-        <a href="/index.php" class="logo">
+        <a href="Association-PourNour/index.php" class="logo">
             <img src="/Association-PourNour/assets/logo/logo_WEBP_transparent.webp" alt="Association Pour Nour">
         </a>
 
@@ -33,6 +33,7 @@
             <li><a href="/Association-PourNour/index.php">Accueil</a></li>
             <li><a href="/Association-PourNour/association.php">L’association</a></li>
             <li><a href="/Association-PourNour/adhesion.php">Adhérer</a></li>
+            <li><a href="/Association-PourNour/boutique.php">Boutique</a></li>
             <li><a href="/Association-PourNour/contact.php">Contact</a></li>
             <li><a href="/Association-PourNour/don.php" class="don-btn-mobile">Faire un don</a></li>
         </ul>
