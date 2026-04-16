@@ -99,6 +99,11 @@ include 'partials/header.php';
                 </div>
 
             </div>
+
+            <a href="/Association-PourNour/boutique.php" class="btn btn-outline history-book-btn">
+                Découvrir notre histoire
+            </a>
+
         </div>
     </section>
 

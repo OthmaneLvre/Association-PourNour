@@ -84,6 +84,18 @@ h1, h2, h3, h4 {
     transform: translateY(-1px);
 }
 
+/* Bouton contour élégant */
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--buttons);
+    color: var(--buttons);
+}
+
+.btn-outline:hover {
+    background: var(--buttons);
+    color: var(--white);
+}
+
 
 /*********************************/
 /* NAVBAR */
@@ -485,6 +497,12 @@ h1, h2, h3, h4 {
     font-size: 22px;
     color: var(--text);
     line-height: 150ù;
+}
+
+.history-book-btn {
+    display: block;
+    width: fit-content;
+    margin: 28px auto 0;
 }
 
 /*********************************/
