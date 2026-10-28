@@ -1034,6 +1034,238 @@ h1, h2, h3, h4 {
     resize: none;
 }
 
+
+/* =========================================
+   ADHESION — FORMULAIRE MODERNE
+   ========================================= */
+
+.page-adherer .card-form,
+.page-adherer .card-form * {
+    box-sizing: border-box;
+}
+
+.page-adherer .card-form {
+    width: 100%;
+    max-width: 900px;
+    padding: 36px;
+}
+
+.page-adherer .card-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* Choix Solo / Couple */
+
+.page-adherer .membership-choice {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+.page-adherer .membership-choice legend {
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: var(--title);
+}
+
+.page-adherer .membership-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.page-adherer .membership-option {
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+
+.page-adherer .membership-option input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.page-adherer .membership-option-content {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-height: 130px;
+    padding: 22px;
+    border: 2px solid #ded1c5;
+    border-radius: 16px;
+    background: var(--white);
+    transition: 0.2s ease;
+}
+
+.page-adherer .membership-option input:checked
++ .membership-option-content {
+    border-color: var(--buttons);
+    background: var(--section);
+    box-shadow: 0 0 0 2px rgba(189, 161, 138, 0.15);
+}
+
+.page-adherer .membership-option input:focus-visible
++ .membership-option-content {
+    outline: 3px solid var(--title);
+    outline-offset: 3px;
+}
+
+.page-adherer .membership-option-content strong {
+    font-size: 23px;
+    color: var(--title);
+}
+
+.page-adherer .membership-option-price {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--title);
+}
+
+.page-adherer .membership-option-content small {
+    font-size: 16px;
+    color: #625850;
+}
+
+/* Informations des adhérents */
+
+.page-adherer .adhesion-person {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 20px;
+    min-width: 0;
+    margin: 0;
+    padding: 28px;
+    border: 1px solid #ded1c5;
+    border-radius: 16px;
+    background: #fffdfa;
+}
+
+.page-adherer .adhesion-person[hidden],
+.page-adherer #secondary-address-fields[hidden] {
+    display: none !important;
+}
+
+.page-adherer .adhesion-person legend {
+    padding: 0 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--title);
+}
+
+.page-adherer .adhesion-person > label:not(:has(input)) {
+    display: block;
+    grid-column: 1 / -1;
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.page-adherer .adhesion-person > input {
+    display: block;
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    font-size: 18px;
+}
+
+.page-adherer .adhesion-person input:focus,
+.page-adherer .card-form textarea:focus {
+    outline: 2px solid var(--buttons);
+    outline-offset: 2px;
+}
+
+/* Adresse commune et consentements */
+
+.page-adherer .adhesion-person > label:has(input[type="checkbox"]) {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.page-adherer input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    flex-shrink: 0;
+    accent-color: var(--title);
+}
+
+.page-adherer #secondary-address-fields {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.page-adherer #secondary-address-fields input {
+    width: 100%;
+    min-height: 46px;
+}
+
+.page-adherer .adhesion-consents {
+    grid-column: 1 / -1;
+    margin-top: 18px;
+    padding-top: 20px;
+    border-top: 1px solid #e5d9cf;
+}
+
+.page-adherer .adhesion-consents p {
+    margin: 0 0 14px;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.page-adherer .adhesion-consents label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.page-adherer .adhesion-consents-info {
+    margin-top: 16px !important;
+    font-size: 15px !important;
+    color: #625850;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+    .page-adherer .form-adhesion-wrapper {
+        width: 92%;
+        padding: 30px 16px;
+        box-sizing: border-box;
+    }
+
+    .page-adherer .card-form {
+        padding: 22px 16px;
+    }
+
+    .page-adherer .membership-options {
+        grid-template-columns: 1fr;
+    }
+
+    .page-adherer .adhesion-person {
+        grid-template-columns: 1fr;
+        padding: 20px 14px;
+    }
+
+    .page-adherer .form-adhesion-title {
+        font-size: 42px;
+    }
+}
+
+
 /* CTA ADHESION */
 
 .support-adhesion-section {

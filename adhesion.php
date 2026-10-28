@@ -1,7 +1,12 @@
 <?php
+declare(strict_types=1);
+
+require_once __DIR__ . '/includes/membership-security.php';
+
 $pageTitle = "Adhérer | Pour Nour";
-include 'partials/head.php';
-include 'partials/header.php';
+
+include_once 'partials/head.php';
+include_once 'partials/header.php';
 ?>
 
 <main class="page-adherer">
@@ -21,7 +26,7 @@ include 'partials/header.php';
                     Une association née pour que plus jamais aucune famille n’avance seule.
                 </p>
 
-                <a href="/Association-PourNour/adherer.php" class="btn btn-secondary">
+                <a href="#formulaire-adhesion" class="btn btn-secondary">
                     Adhérer
                 </a>
             </div>
@@ -64,9 +69,9 @@ include 'partials/header.php';
                         </p>
 
                         <p class="price">
-                            15 € / an
+                            10 € / an
                         </p>
-                        <a href="/Association-PourNour/adherer.php" class="btn btn-secondary">
+                        <a href="#formulaire-adhesion" class="btn btn-secondary">
                             Adhérer
                         </a>
                     </div>
@@ -88,7 +93,7 @@ include 'partials/header.php';
                             15 € / an
                         </p>
                         
-                        <a href="/Association-PourNour/adherer.php" class="btn btn-secondary">
+                        <a href="#formulaire-adhesion" class="btn btn-secondary">
                             Adhérer
                         </a>
                     </div>
@@ -123,7 +128,7 @@ include 'partials/header.php';
 
         <!-- SECTION 3 : Formulaire Adhésion -->
 
-    <section class="form-adhesion-section">
+    <section class="form-adhesion-section" id="formulaire-adhesion">
         <div class="form-adhesion-wrapper">
 
             <div class="form-adhesion-text">
@@ -135,33 +140,292 @@ include 'partials/header.php';
 
                 <div class="card-form">
                     <form action="adhesion-traitement.php" method="post">
-                        <!-- Nom -->
-                        <label for="nom">Nom</label>
-                        <input type="text" id="nom" name="nom" required>
 
-                        <!-- Prénom -->
-                        <label for="prenom">Prénom</label>
-                        <input type="text" id="prenom" name="prenom" required>
+                        <input
+                            type="hidden"
+                            name="csrf_token"
+                            value="<?= membershipEscape(membershipCsrfToken()) ?>"
+                        >
 
-                        <!-- Email -->
-                        <label for="email">Adresse e-mail</label>
-                        <input type="email" id="email" name="email" required>
+                        <input
+                            type="hidden"
+                            name="submission_token"
+                            value="<?= membershipEscape(membershipSubmissionToken()) ?>"
+                        >
 
-                        <!-- Téléphone -->
-                        <label for="telephone">Téléphone (optionnel)</label>
-                        <input type="text" id="telephone" name="telephone">
+                        <fieldset class="adhesion-person">
+                            <legend>Adhérent principal</legend>
 
-                        <!-- Adresse postale -->
-                        <label for="adresse">Adresse postale (optionnel)</label>
-                        <input type="text" id="adresse" name="adresse">
+                            <label for="primary_first_name">Prénom *</label>
+                            <input
+                                type="text"
+                                id="primary_first_name"
+                                name="members[0][first_name]"
+                                maxlength="100"
+                                autocomplete="given-name"
+                                required
+                            >
+
+                            <label for="primary_last_name">Nom *</label>
+                            <input
+                                type="text"
+                                id="primary_last_name"
+                                name="members[0][last_name]"
+                                maxlength="100"
+                                autocomplete="family-name"
+                                required
+                            >
+
+                            <label for="primary_email">Adresse e-mail *</label>
+                            <input
+                                type="email"
+                                id="primary_email"
+                                name="members[0][email]"
+                                maxlength="254"
+                                autocomplete="email"
+                                required
+                            >
+
+                            <label for="primary_phone">Téléphone (facultatif)</label>
+                            <input
+                                type="tel"
+                                id="primary_phone"
+                                name="members[0][phone]"
+                                maxlength="30"
+                                autocomplete="tel"
+                            >
+
+                            <label for="primary_address">Adresse postale (facultative)</label>
+                            <input
+                                type="text"
+                                id="primary_address"
+                                name="members[0][address_line1]"
+                                maxlength="255"
+                                autocomplete="street-address"
+                            >
+
+                            <label for="primary_postal_code">Code postal (facultatif)</label>
+                            <input
+                                type="text"
+                                id="primary_postal_code"
+                                name="members[0][postal_code]"
+                                maxlength="20"
+                                autocomplete="postal-code"
+                            >
+
+                            <label for="primary_city">Ville (facultative)</label>
+                            <input
+                                type="text"
+                                id="primary_city"
+                                name="members[0][city]"
+                                maxlength="150"
+                                autocomplete="address-level2"
+                            >
+
+                            <div class="adhesion-consents">
+                                <p>
+                                    <strong>Préférences de communication</strong>
+                                </p>
+
+                                <p>
+                                    Souhaitez-vous recevoir les actualités et informations
+                                    de l'association Pour Nour ?
+                                </p>
+
+                                <label for="primary_consent_email">
+                                    <input
+                                        type="checkbox"
+                                        id="primary_consent_email"
+                                        name="members[0][contact_email_opt_in]"
+                                        value="1"
+                                    >
+                                    Par e-mail
+                                </label>
+
+                                <label for="primary_consent_sms">
+                                    <input
+                                        type="checkbox"
+                                        id="primary_consent_sms"
+                                        name="members[0][contact_sms_opt_in]"
+                                        value="1"
+                                    >
+                                    Par SMS
+                                </label>
+
+                                <label for="primary_consent_postal">
+                                    <input
+                                        type="checkbox"
+                                        id="primary_consent_postal"
+                                        name="members[0][contact_postal_opt_in]"
+                                        value="1"
+                                    >
+                                    Par courrier postal
+                                </label>
+
+                                <p class="adhesion-consents-info">
+                                    Ces choix sont facultatifs et indépendants de votre adhésion.
+                                    Vous pourrez retirer votre consentement à tout moment.
+                                </p>
+                            </div>
+
+                        </fieldset>
 
                         <!-- Type adhésion -->
-                        <label for="type">Type d’adhésion</label>
-                        <select id="type" name="type_adhesion" required>
-                            <option value="">Sélectionner…</option>
-                            <option value="solo">Seul</option>
-                            <option value="duo">Couple</option>
-                        </select>
+                        <fieldset class="membership-choice">
+                            <legend>Choisissez votre adhésion</legend>
+
+                            <div class="membership-options">
+                                <label class="membership-option">
+                                    <input
+                                        type="radio"
+                                        name="type_adhesion"
+                                        value="solo"
+                                        checked
+                                        required
+                                    >
+
+                                    <span class="membership-option-content">
+                                        <strong>Solo</strong>
+                                        <span class="membership-option-price">10 € / an</span>
+                                        <small>Pour une personne</small>
+                                    </span>
+                                </label>
+
+                                <label class="membership-option">
+                                    <input
+                                        type="radio"
+                                        name="type_adhesion"
+                                        value="couple"
+                                        required
+                                    >
+
+                                    <span class="membership-option-content">
+                                        <strong>Couple</strong>
+                                        <span class="membership-option-price">15 € / an</span>
+                                        <small>Pour deux personnes</small>
+                                    </span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="adhesion-person" id="secondary-member" hidden disabled>
+                            <legend>Deuxième adhérent</legend>
+
+                            <label for="secondary_first_name">Prénom *</label>
+                            <input
+                                type="text"
+                                id="secondary_first_name"
+                                name="members[1][first_name]"
+                                maxlength="100"
+                                required
+                            >
+
+                            <label for="secondary_last_name">Nom *</label>
+                            <input
+                                type="text"
+                                id="secondary_last_name"
+                                name="members[1][last_name]"
+                                maxlength="100"
+                                required
+                            >
+
+                            <label for="secondary_email">Adresse e-mail (facultative)</label>
+                            <input
+                                type="email"
+                                id="secondary_email"
+                                name="members[1][email]"
+                                maxlength="254"
+                            >
+
+                            <label for="secondary_phone">Téléphone (facultatif)</label>
+                            <input
+                                type="tel"
+                                id="secondary_phone"
+                                name="members[1][phone]"
+                                maxlength="30"
+                            >
+
+                            <label for="same_address">
+                                <input
+                                    type="checkbox"
+                                    id="same_address"
+                                    name="same_address"
+                                    value="1"
+                                    checked
+                                >
+                                Même adresse postale que l'adhérent principal
+                            </label>
+
+                            <div id="secondary-address-fields" hidden>
+                                <label for="secondary_address">Adresse postale</label>
+                                <input
+                                    type="text"
+                                    id="secondary_address"
+                                    name="members[1][address_line1]"
+                                    maxlength="255"
+                                >
+
+                                <label for="secondary_postal_code">Code postal</label>
+                                <input
+                                    type="text"
+                                    id="secondary_postal_code"
+                                    name="members[1][postal_code]"
+                                    maxlength="20"
+                                >
+
+                                <label for="secondary_city">Ville</label>
+                                <input
+                                    type="text"
+                                    id="secondary_city"
+                                    name="members[1][city]"
+                                    maxlength="150"
+                                >
+                            </div>
+
+                            <div class="adhesion-consents">
+                                <p><strong>Préférences de communication</strong></p>
+
+                                <p>
+                                    Souhaitez-vous recevoir les actualités
+                                    et informations de l'association Pour Nour ?
+                                </p>
+
+                                <label for="secondary_consent_email">
+                                    <input
+                                        type="checkbox"
+                                        id="secondary_consent_email"
+                                        name="members[1][contact_email_opt_in]"
+                                        value="1"
+                                    >
+                                    Par e-mail
+                                </label>
+
+                                <label for="secondary_consent_sms">
+                                    <input
+                                        type="checkbox"
+                                        id="secondary_consent_sms"
+                                        name="members[1][contact_sms_opt_in]"
+                                        value="1"
+                                    >
+                                    Par SMS
+                                </label>
+
+                                <label for="secondary_consent_postal">
+                                    <input
+                                        type="checkbox"
+                                        id="secondary_consent_postal"
+                                        name="members[1][contact_postal_opt_in]"
+                                        value="1"
+                                    >
+                                    Par courrier postal
+                                </label>
+
+                                <p class="adhesion-consents-info">
+                                    Ces choix sont facultatifs et indépendants de l'adhésion.
+                                    Ils pourront être retirés à tout moment.
+                                </p>
+                            </div>
+                        </fieldset>
 
                         <!-- Message -->
                         <label for="message">Message (optionnel)</label>
@@ -193,10 +457,51 @@ include 'partials/header.php';
 
         </div>
     </section>
-    
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const secondaryMember = document.getElementById('secondary-member');
+        const sameAddress = document.getElementById('same_address');
+        const secondaryAddressFields = document.getElementById(
+            'secondary-address-fields'
+        );
+
+        function updateMembershipType() {
+            const isCouple = document.querySelector(
+                'input[name="type_adhesion"]:checked'
+            )?.value === 'couple';
+
+            secondaryMember.hidden = !isCouple;
+            secondaryMember.disabled = !isCouple;
+
+            updateAddressVisibility();
+        }
+
+        function updateAddressVisibility() {
+            const useSameAddress = sameAddress.checked;
+
+            secondaryAddressFields.hidden = useSameAddress;
+
+            secondaryAddressFields
+                .querySelectorAll('input')
+                .forEach(input => {
+                    input.disabled = useSameAddress;
+                });
+        }
+
+        document.querySelectorAll('input[name="type_adhesion"]').forEach(input => {
+            input.addEventListener('change', updateMembershipType);
+        });
+        sameAddress.addEventListener('change', updateAddressVisibility);
+
+        updateMembershipType();
+    });
+    </script>
+
 
 </main>
 
 <?php
-include 'partials/footer.php'
+include_once 'partials/footer.php'
 ?>
