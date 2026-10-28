@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS members (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
-    email VARCHAR(254) NOT NULL,
+    email VARCHAR(254) NULL,
 
     phone VARCHAR(30) NULL,
     address_line1 VARCHAR(255) NULL,
