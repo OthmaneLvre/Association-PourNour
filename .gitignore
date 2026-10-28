@@ -10,3 +10,6 @@
 /paiement-success.php
 /paiement-stripe.php
 /paiement-paypal.php
+
+/config/database.local.php
+/config/stripe.local.php

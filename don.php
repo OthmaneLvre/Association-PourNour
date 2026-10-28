@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/includes/donation-security.php';
+
 $pageTitle = "Faire un don – Association Pour Nour";
 include 'partials/head.php';
 include 'partials/header.php';
@@ -20,6 +22,18 @@ include 'partials/header.php';
             <h2 class="don-title">Votre don</h2>
 
             <form action="choix-paiement.php" method="post" class="don-form">
+
+                <input
+                    type="hidden"
+                    name="csrf_token"
+                    value="<?= donationEscape(donationCsrfToken()) ?>"
+                >
+
+                <input
+                    type="hidden"
+                    name="submission_token"
+                    value="<?= donationEscape(donationSubmissionToken()) ?>"
+                >
 
                 <!-- Montant  fixe du don -->
                 <label for="montant">Choisissez le montant de votre don</label>
@@ -71,8 +85,5 @@ include 'partials/header.php';
     </section>
 
 </main>
-
-<script src="https://js.stripe.com/v3/"></script>
-<script src="/js/don.js"></script>
 
 <?php include 'partials/footer.php'; ?>
