@@ -13,3 +13,4 @@
 
 /config/database.local.php
 /config/stripe.local.php
+/database/backups/
